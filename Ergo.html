@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lies of P Ergo Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+      background-color: #333;
+      color: #fff;
+    }
+
+    #calculator {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #555;
+      border-radius: 5px;
+      background-color: #444;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      width: 100%;
+      text-align: left;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      color: #4CAF50;
+    }
+
+    .column {
+      float: left;
+      width: 25%;
+      padding: 10px;
+    }
+
+    .center-column {
+      float: left;
+      width: 25%;
+      padding: 10px;
+      margin-left: 25%;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div id="calculator">
+    <h2>Lies of P Ergo Calculator</h2>
+
+    <div class="row">
+      <div class="column">
+        <label for="dimFragment">Dim Ergo Fragment (100):</label>
+        <input type="number" id="dimFragment" value="0">
+
+        <label for="vividFragment">Vivid Ergo Fragment (300):</label>
+        <input type="number" id="vividFragment" value="0">
+
+        <label for="radiantFragment">Radiant Ergo Fragment (500):</label>
+        <input type="number" id="radiantFragment" value="0">
+
+        <label for="resplendentFragment">Resplendent Ergo Fragment (700):</label>
+        <input type="number" id="resplendentFragment" value="0">
+      </div>
+
+      <div class="column">
+        <label for="dimChunk">Dim Ergo Chunk (1.000):</label>
+        <input type="number" id="dimChunk" value="0">
+
+        <label for="vividChunk">Vivid Ergo Chunk (1.500):</label>
+        <input type="number" id="vividChunk" value="0">
+
+        <label for="radiantChunk">Radiant Ergo Chunk (2.000):</label>
+        <input type="number" id="radiantChunk" value="0">
+
+        <label for="resplendentChunk">Resplendent Ergo Chunk (3.000):</label>
+        <input type="number" id="resplendentChunk" value="0">
+      </div>
+
+      <div class="column">
+        <label for="dimCrystal">Dim Ergo Crystal (5.000):</label>
+        <input type="number" id="dimCrystal" value="0">
+
+        <label for="vividCrystal">Vivid Ergo Crystal (7.000):</label>
+        <input type="number" id="vividCrystal" value="0">
+
+        <label for="radiantCrystal">Radiant Ergo Crystal (10.000):</label>
+        <input type="number" id="radiantCrystal" value="0">
+
+        <label for="resplendentCrystal">Resplendent Ergo Crystal (15.000):</label>
+        <input type="number" id="resplendentCrystal" value="0">
+      </div>
+
+      <div class="center-column">
+        <label for="eternalCrystal">Ergo Crystal of the Eternal (25.000):</label>
+        <input type="number" id="eternalCrystal" value="0">
+      </div>
+    </div>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculateTotal() {
+      const dimFragment = parseInt(document.getElementById('dimFragment').value) * 100;
+      const vividFragment = parseInt(document.getElementById('vividFragment').value) * 300;
+      const radiantFragment = parseInt(document.getElementById('radiantFragment').value) * 500;
+      const resplendentFragment = parseInt(document.getElementById('resplendentFragment').value) * 700;
+      const dimChunk = parseInt(document.getElementById('dimChunk').value) * 1000;
+      const vividChunk = parseInt(document.getElementById('vividChunk').value) * 1500;
+      const radiantChunk = parseInt(document.getElementById('radiantChunk').value) * 2000;
+      const resplendentChunk = parseInt(document.getElementById('resplendentChunk').value) * 3000;
+      const dimCrystal = parseInt(document.getElementById('dimCrystal').value) * 5000;
+      const vividCrystal = parseInt(document.getElementById('vividCrystal').value) * 7000;
+      const radiantCrystal = parseInt(document.getElementById('radiantCrystal').value) * 10000;
+      const resplendentCrystal = parseInt(document.getElementById('resplendentCrystal').value) * 15000;
+      const eternalCrystal = parseInt(document.getElementById('eternalCrystal').value) * 25000;
+
+      const totalErgo = dimFragment + vividFragment + radiantFragment + resplendentFragment +
+                       dimChunk + vividChunk + radiantChunk + resplendentChunk +
+                       dimCrystal + vividCrystal + radiantCrystal + resplendentCrystal + eternalCrystal;
+
+      document.getElementById('result').innerHTML = `Total Ergo: ${totalErgo.toLocaleString()}`;
+    }
+
+    // Add event listeners for each input field
+    const inputFields = document.querySelectorAll('input');
+    inputFields.forEach(input => {
+      input.addEventListener('input', calculateTotal);
+    });
+  </script>
+</body>
+</html>
